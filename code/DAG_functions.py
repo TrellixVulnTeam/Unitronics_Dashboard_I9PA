@@ -2,8 +2,11 @@ import pandas as pd
 from sqlalchemy import create_engine
 import re
 import os
+import sys
+sys.path.insert(0, os.path.abspath(".."))
 from dataframe import concatDataFrame, createDataFrame
 from sqlalchemy import text
+import config
 
 def extractData(dir_name):
     """
@@ -191,25 +194,19 @@ def transformData(device_df, sensor_df, alarm_df):
     
     return device_df, sensor_df, alarm_df
 
-def load_and_check_dup_data(df,log_name,contraint):
-    """
-    runs through each line of the dataframe and checks if there is a primary key 
-    duplicate in the database. This prevents dup errors.
 
-    Args:
-        df (dataframe): the dataframe to be checked against the database
-        log_name (string): the name of the table in the database
-        conn (engine): SQLAlchemy engine
-    """
-    if log_name == "device_log":
-        t =text("INSERT INTO device_log(rack_num, date_time, device, state_) VALUES(?,?,?,?) ON CONFLICT ON CONSTRAINT contraint DO NOTHING")
-    
-    elif log_name == "sensor_log":
-        t = text("INSERT INTO device_log(rack_num, date_time, device, state_) VALUES(?,?,?,?) ON CONFLICT ON CONSTRAINT contraint DO NOTHING")
+def postgres_upsert(table, conn, keys, data_iter):
+    from sqlalchemy.dialects.postgresql import insert
 
-    elif log_name == "alarm_log":
-        t = text("INSERT INTO device_log(rack_num, date_time, device, state_) VALUES(?,?,?,?) ON CONFLICT ON CONSTRAINT contraint DO NOTHING")
-    return t
+    data = [dict(zip(keys, row)) for row in data_iter]
+
+    insert_statement = insert(table.table).values(data)
+    upsert_statement = insert_statement.on_conflict_do_update(
+        constraint=f"{table.table.name}_pkey",
+        set_={c.key: c for c in insert_statement.excluded},
+    )
+    conn.execute(upsert_statement)
+
 
 def loadData(device_df, sensor_df, alarm_df):
     """
@@ -226,9 +223,25 @@ def loadData(device_df, sensor_df, alarm_df):
     db = create_engine(conn_string)
     conn = db.connect()
 
-    conn.execute(checkIntegrity(device_df, 'device_log', conn))
-    conn.execute(checkIntegrity(sensor_df, 'sensor_log', conn))
-    conn.execute(checkIntegrity(alarm_df, 'alarm_log', conn))
+
+    device_df.to_sql('sensor_log',
+                     conn=conn,
+              if_exists='append',
+              index=False,
+              method=postgres_upsert)
+
+
+    sensor_df.to_sql('sensor_log',
+                     conn=conn,
+                     if_exists='append',
+                     index=False,
+                     method=postgres_upsert)
+
+    alarm_df.to_sql('alarm_log',
+                    conn=conn,
+                    if_exists='append',
+                    index=False,
+                    method=postgres_upsert)
 
 def deleteFiles(dir_name):
     """
