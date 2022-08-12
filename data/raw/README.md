@@ -1,1 +1,0 @@
-#Sample Data to start making ETL pipeline and visualizations
