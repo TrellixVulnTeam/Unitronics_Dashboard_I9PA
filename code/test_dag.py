@@ -1,6 +1,6 @@
 from DAG_functions import extractData, transformData, loadData, deleteFiles
 
-dir_name = "C:/Users/ai2318/Desktop/Unitronics"
+dir_name = dir_name
 
 device_df, sensor_df, alarm_df = extractData(dir_name)
 

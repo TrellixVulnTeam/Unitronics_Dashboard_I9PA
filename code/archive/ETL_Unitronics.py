@@ -7,7 +7,7 @@ last_month = str(now.month-1) if now.month>1 else str(12)
 last_month_year = str(now.year - 1) if now.month==1 else str(now.year)
 folder_name = last_month_year + last_month
 
-path = '/Users/Public/Documents/Individual Rack Data'
+path = dir_name
 
 
 for folder in os.listdir(path):

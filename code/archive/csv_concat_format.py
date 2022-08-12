@@ -29,7 +29,7 @@ def formatDataFrame(df):
     return df
 
 
-dir_name = "C:/Users/ai2318/Desktop/Unitronics"
+dir_name = dir_name
 alarm_df = pd.DataFrame(columns={'date_time', 'alarm','rack_num'})
 
 for file in os.listdir(dir_name):

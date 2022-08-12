@@ -3,7 +3,7 @@ from sqlalchemy import create_engine
 import re
 import os
 from dataframe import concatDataFrame, createDataFrame
-from sqlalchemy.exc import IntegrityError
+from sqlalchemy import text
 
 def extractData(dir_name):
     """
@@ -191,7 +191,7 @@ def transformData(device_df, sensor_df, alarm_df):
     
     return device_df, sensor_df, alarm_df
 
-def checkIntegrity(df,log_name,conn):
+def load_and_check_dup_data(df,log_name,contraint):
     """
     runs through each line of the dataframe and checks if there is a primary key 
     duplicate in the database. This prevents dup errors.
@@ -201,12 +201,15 @@ def checkIntegrity(df,log_name,conn):
         log_name (string): the name of the table in the database
         conn (engine): SQLAlchemy engine
     """
-    for i in range(len(df)):
-        try:
-          df.iloc[i:i+1].to_sql(log_name, con=conn,
-                                if_exists='append', index=False, chunksize=10000)
-        except IntegrityError:
-            pass
+    if log_name == "device_log":
+        t =text("INSERT INTO device_log(rack_num, date_time, device, state_) VALUES(?,?,?,?) ON CONFLICT ON CONSTRAINT contraint DO NOTHING")
+    
+    elif log_name == "sensor_log":
+        t = text("INSERT INTO device_log(rack_num, date_time, device, state_) VALUES(?,?,?,?) ON CONFLICT ON CONSTRAINT contraint DO NOTHING")
+
+    elif log_name == "alarm_log":
+        t = text("INSERT INTO device_log(rack_num, date_time, device, state_) VALUES(?,?,?,?) ON CONFLICT ON CONSTRAINT contraint DO NOTHING")
+    return t
 
 def loadData(device_df, sensor_df, alarm_df):
     """
@@ -218,13 +221,14 @@ def loadData(device_df, sensor_df, alarm_df):
         alarm_df (DataFrame):  wrangled dataframe ready for ingestion
     """
 
-    conn_string = '***REMOVED***://***REMOVED***:***REMOVED***@***REMOVED***/***REMOVED***'
+    conn_string = config.username + '://' + config.password + ':' + \
+        config.password + '@' + config.host + '/' + config.dbase
     db = create_engine(conn_string)
     conn = db.connect()
 
-    checkIntegrity(device_df, 'device_log', conn)
-    checkIntegrity(sensor_df, 'sensor_log', conn)
-    checkIntegrity(alarm_df, 'alarm_log', conn)
+    conn.execute(checkIntegrity(device_df, 'device_log', conn))
+    conn.execute(checkIntegrity(sensor_df, 'sensor_log', conn))
+    conn.execute(checkIntegrity(alarm_df, 'alarm_log', conn))
 
 def deleteFiles(dir_name):
     """

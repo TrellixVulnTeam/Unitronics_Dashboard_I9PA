@@ -17,7 +17,7 @@ def formatDataFrame(df):
     return df
 
 
-dir_name = "C:/Users/ai2318/Desktop/Unitronics"
+dir_name = dir_name
 
 alarm_df = pd.DataFrame(columns={'Rack', 'Row', 'Date_Time', 'Alarm'})
 device_df = pd.DataFrame(
