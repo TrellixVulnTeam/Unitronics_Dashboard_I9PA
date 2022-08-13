@@ -208,7 +208,7 @@ def postgres_upsert(table, conn, keys, data_iter):
     conn.execute(upsert_statement)
 
 
-def loadData(alarm_df):
+def loadData(device_df, sensor_df, alarm_df):
     """
     ingests dataframes that were transformed into the postgres database
 
@@ -224,18 +224,18 @@ def loadData(alarm_df):
     conn = db.connect()
 
 
-    # device_df.to_sql('device_log',
-    #                  conn,
-    #           if_exists='append',
-    #           index=False,
-    #           method=postgres_upsert)
+    device_df.to_sql('device_log',
+                     conn,
+              if_exists='append',
+              index=False,
+              method=postgres_upsert)
 
 
-    # sensor_df.to_sql('sensor_log',
-    #                  conn,
-    #                  if_exists='append',
-    #                  index=False,
-    #                  method=postgres_upsert)
+    sensor_df.to_sql('sensor_log',
+                     conn,
+                     if_exists='append',
+                     index=False,
+                     method=postgres_upsert)
 
     alarm_df.to_sql('alarm_log',
                     conn,
