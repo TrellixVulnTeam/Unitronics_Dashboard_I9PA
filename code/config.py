@@ -1,0 +1,5 @@
+username = 'postgresql'
+password = 'postgres'
+host = 'aquatics01.sgc.loc'
+dbase = 'Cavefish'
+dir_name = 'C:\\Unitronics Data Logs'
