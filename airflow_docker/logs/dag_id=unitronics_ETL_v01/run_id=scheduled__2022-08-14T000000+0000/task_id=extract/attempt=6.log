@@ -1,0 +1,64 @@
+[2022-08-17 20:06:04,243] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: unitronics_ETL_v01.extract scheduled__2022-08-14T00:00:00+00:00 [queued]>
+[2022-08-17 20:06:04,253] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: unitronics_ETL_v01.extract scheduled__2022-08-14T00:00:00+00:00 [queued]>
+[2022-08-17 20:06:04,253] {taskinstance.py:1376} INFO - 
+--------------------------------------------------------------------------------
+[2022-08-17 20:06:04,254] {taskinstance.py:1377} INFO - Starting attempt 6 of 6
+[2022-08-17 20:06:04,254] {taskinstance.py:1378} INFO - 
+--------------------------------------------------------------------------------
+[2022-08-17 20:06:04,273] {taskinstance.py:1397} INFO - Executing <Task(PythonOperator): extract> on 2022-08-14 00:00:00+00:00
+[2022-08-17 20:06:04,278] {standard_task_runner.py:52} INFO - Started process 1936 to run task
+[2022-08-17 20:06:04,284] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'unitronics_ETL_v01', 'extract', 'scheduled__2022-08-14T00:00:00+00:00', '--job-id', '59', '--raw', '--subdir', 'DAGS_FOLDER/unitronics_ETL.py', '--cfg-path', '/tmp/tmpg9_vxn68', '--error-file', '/tmp/tmpu8r4xj9m']
+[2022-08-17 20:06:04,286] {standard_task_runner.py:80} INFO - Job 59: Subtask extract
+[2022-08-17 20:06:04,356] {task_command.py:371} INFO - Running <TaskInstance: unitronics_ETL_v01.extract scheduled__2022-08-14T00:00:00+00:00 [running]> on host 8c93e37464e5
+[2022-08-17 20:06:04,439] {taskinstance.py:1591} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Cavefish
+AIRFLOW_CTX_DAG_ID=unitronics_ETL_v01
+AIRFLOW_CTX_TASK_ID=extract
+AIRFLOW_CTX_EXECUTION_DATE=2022-08-14T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=6
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-08-14T00:00:00+00:00
+[2022-08-17 20:06:04,447] {taskinstance.py:1909} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 171, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 189, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/unitronics_ETL.py", line 75, in extractData
+    files = os.listdir(dir_name)
+FileNotFoundError: [Errno 2] No such file or directory: 'C:/Unitronics Data Logs/'
+[2022-08-17 20:06:04,458] {taskinstance.py:1420} INFO - Marking task as FAILED. dag_id=unitronics_ETL_v01, task_id=extract, execution_date=20220814T000000, start_date=20220817T200604, end_date=20220817T200604
+[2022-08-17 20:06:04,471] {standard_task_runner.py:97} ERROR - Failed to execute job 59 for task extract ([Errno 2] No such file or directory: 'C:/Unitronics Data Logs/'; 1936)
+[2022-08-17 20:06:04,498] {local_task_job.py:156} INFO - Task exited with return code 1
+[2022-08-17 20:06:04,560] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2022-08-17 21:42:59,633] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: unitronics_ETL_v01.extract scheduled__2022-08-14T00:00:00+00:00 [queued]>
+[2022-08-17 21:42:59,642] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: unitronics_ETL_v01.extract scheduled__2022-08-14T00:00:00+00:00 [queued]>
+[2022-08-17 21:42:59,643] {taskinstance.py:1376} INFO - 
+--------------------------------------------------------------------------------
+[2022-08-17 21:42:59,643] {taskinstance.py:1377} INFO - Starting attempt 6 of 6
+[2022-08-17 21:42:59,643] {taskinstance.py:1378} INFO - 
+--------------------------------------------------------------------------------
+[2022-08-17 21:42:59,657] {taskinstance.py:1397} INFO - Executing <Task(PythonOperator): extract> on 2022-08-14 00:00:00+00:00
+[2022-08-17 21:42:59,661] {standard_task_runner.py:52} INFO - Started process 1795 to run task
+[2022-08-17 21:42:59,665] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'unitronics_ETL_v01', 'extract', 'scheduled__2022-08-14T00:00:00+00:00', '--job-id', '24', '--raw', '--subdir', 'DAGS_FOLDER/unitronics_ETL.py', '--cfg-path', '/tmp/tmptesdov92', '--error-file', '/tmp/tmpesclwufj']
+[2022-08-17 21:42:59,666] {standard_task_runner.py:80} INFO - Job 24: Subtask extract
+[2022-08-17 21:42:59,735] {task_command.py:371} INFO - Running <TaskInstance: unitronics_ETL_v01.extract scheduled__2022-08-14T00:00:00+00:00 [running]> on host 1b0f89009e2c
+[2022-08-17 21:42:59,811] {taskinstance.py:1591} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Cavefish
+AIRFLOW_CTX_DAG_ID=unitronics_ETL_v01
+AIRFLOW_CTX_TASK_ID=extract
+AIRFLOW_CTX_EXECUTION_DATE=2022-08-14T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=6
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-08-14T00:00:00+00:00
+[2022-08-17 21:42:59,819] {taskinstance.py:1909} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 171, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 189, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/unitronics_ETL.py", line 76, in extractData
+    files = os.listdir(dir_name)
+FileNotFoundError: [Errno 2] No such file or directory: '/Unitronics Data Logs/'
+[2022-08-17 21:42:59,830] {taskinstance.py:1420} INFO - Marking task as FAILED. dag_id=unitronics_ETL_v01, task_id=extract, execution_date=20220814T000000, start_date=20220817T214259, end_date=20220817T214259
+[2022-08-17 21:42:59,841] {standard_task_runner.py:97} ERROR - Failed to execute job 24 for task extract ([Errno 2] No such file or directory: '/Unitronics Data Logs/'; 1795)
+[2022-08-17 21:42:59,877] {local_task_job.py:156} INFO - Task exited with return code 1
+[2022-08-17 21:43:00,005] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,212 @@
+[2022-08-17 18:54:31,339] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: unitronics_ETL_v01.extract scheduled__2022-08-14T00:00:00+00:00 [queued]>
+[2022-08-17 18:54:31,350] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: unitronics_ETL_v01.extract scheduled__2022-08-14T00:00:00+00:00 [queued]>
+[2022-08-17 18:54:31,351] {taskinstance.py:1376} INFO - 
+--------------------------------------------------------------------------------
+[2022-08-17 18:54:31,351] {taskinstance.py:1377} INFO - Starting attempt 1 of 6
+[2022-08-17 18:54:31,351] {taskinstance.py:1378} INFO - 
+--------------------------------------------------------------------------------
+[2022-08-17 18:54:31,367] {taskinstance.py:1397} INFO - Executing <Task(PythonOperator): extract> on 2022-08-14 00:00:00+00:00
+[2022-08-17 18:54:31,373] {standard_task_runner.py:52} INFO - Started process 777 to run task
+[2022-08-17 18:54:31,378] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'unitronics_ETL_v01', 'extract', 'scheduled__2022-08-14T00:00:00+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/unitronics_ETL.py', '--cfg-path', '/tmp/tmpde969_fc', '--error-file', '/tmp/tmpyh1yuxyu']
+[2022-08-17 18:54:31,379] {standard_task_runner.py:80} INFO - Job 4: Subtask extract
+[2022-08-17 18:54:31,457] {task_command.py:371} INFO - Running <TaskInstance: unitronics_ETL_v01.extract scheduled__2022-08-14T00:00:00+00:00 [running]> on host a9aa2b837f24
+[2022-08-17 18:54:31,550] {taskinstance.py:1591} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Cavefish
+AIRFLOW_CTX_DAG_ID=unitronics_ETL_v01
+AIRFLOW_CTX_TASK_ID=extract
+AIRFLOW_CTX_EXECUTION_DATE=2022-08-14T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-08-14T00:00:00+00:00
+[2022-08-17 18:54:31,551] {taskinstance.py:1909} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 171, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 189, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+TypeError: extractData() missing 1 required positional argument: 'dir_name'
+[2022-08-17 18:54:31,559] {taskinstance.py:1420} INFO - Marking task as UP_FOR_RETRY. dag_id=unitronics_ETL_v01, task_id=extract, execution_date=20220814T000000, start_date=20220817T185431, end_date=20220817T185431
+[2022-08-17 18:54:31,572] {standard_task_runner.py:97} ERROR - Failed to execute job 4 for task extract (extractData() missing 1 required positional argument: 'dir_name'; 777)
+[2022-08-17 18:54:31,592] {local_task_job.py:156} INFO - Task exited with return code 1
+[2022-08-17 18:54:31,634] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2022-08-17 19:02:12,590] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: unitronics_ETL_v01.extract scheduled__2022-08-14T00:00:00+00:00 [queued]>
+[2022-08-17 19:02:12,602] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: unitronics_ETL_v01.extract scheduled__2022-08-14T00:00:00+00:00 [queued]>
+[2022-08-17 19:02:12,603] {taskinstance.py:1376} INFO - 
+--------------------------------------------------------------------------------
+[2022-08-17 19:02:12,603] {taskinstance.py:1377} INFO - Starting attempt 1 of 6
+[2022-08-17 19:02:12,603] {taskinstance.py:1378} INFO - 
+--------------------------------------------------------------------------------
+[2022-08-17 19:02:12,625] {taskinstance.py:1397} INFO - Executing <Task(PythonOperator): extract> on 2022-08-14 00:00:00+00:00
+[2022-08-17 19:02:12,629] {standard_task_runner.py:52} INFO - Started process 224 to run task
+[2022-08-17 19:02:12,633] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'unitronics_ETL_v01', 'extract', 'scheduled__2022-08-14T00:00:00+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/unitronics_ETL.py', '--cfg-path', '/tmp/tmpsdgpb0yk', '--error-file', '/tmp/tmp9nk3s_cu']
+[2022-08-17 19:02:12,638] {standard_task_runner.py:80} INFO - Job 3: Subtask extract
+[2022-08-17 19:02:12,723] {task_command.py:371} INFO - Running <TaskInstance: unitronics_ETL_v01.extract scheduled__2022-08-14T00:00:00+00:00 [running]> on host ea4c9b9e2e97
+[2022-08-17 19:02:12,808] {taskinstance.py:1591} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Cavefish
+AIRFLOW_CTX_DAG_ID=unitronics_ETL_v01
+AIRFLOW_CTX_TASK_ID=extract
+AIRFLOW_CTX_EXECUTION_DATE=2022-08-14T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-08-14T00:00:00+00:00
+[2022-08-17 19:02:12,809] {taskinstance.py:1909} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 171, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 189, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+TypeError: extractData() missing 1 required positional argument: 'dir_name'
+[2022-08-17 19:02:12,819] {taskinstance.py:1420} INFO - Marking task as UP_FOR_RETRY. dag_id=unitronics_ETL_v01, task_id=extract, execution_date=20220814T000000, start_date=20220817T190212, end_date=20220817T190212
+[2022-08-17 19:02:12,832] {standard_task_runner.py:97} ERROR - Failed to execute job 3 for task extract (extractData() missing 1 required positional argument: 'dir_name'; 224)
+[2022-08-17 19:02:12,852] {local_task_job.py:156} INFO - Task exited with return code 1
+[2022-08-17 19:02:12,926] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2022-08-17 19:24:25,135] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: unitronics_ETL_v01.extract scheduled__2022-08-14T00:00:00+00:00 [queued]>
+[2022-08-17 19:24:25,147] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: unitronics_ETL_v01.extract scheduled__2022-08-14T00:00:00+00:00 [queued]>
+[2022-08-17 19:24:25,148] {taskinstance.py:1376} INFO - 
+--------------------------------------------------------------------------------
+[2022-08-17 19:24:25,148] {taskinstance.py:1377} INFO - Starting attempt 1 of 6
+[2022-08-17 19:24:25,148] {taskinstance.py:1378} INFO - 
+--------------------------------------------------------------------------------
+[2022-08-17 19:24:25,164] {taskinstance.py:1397} INFO - Executing <Task(PythonOperator): extract> on 2022-08-14 00:00:00+00:00
+[2022-08-17 19:24:25,167] {standard_task_runner.py:52} INFO - Started process 225 to run task
+[2022-08-17 19:24:25,171] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'unitronics_ETL_v01', 'extract', 'scheduled__2022-08-14T00:00:00+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/unitronics_ETL.py', '--cfg-path', '/tmp/tmposys_i3e', '--error-file', '/tmp/tmpvu08jssq']
+[2022-08-17 19:24:25,173] {standard_task_runner.py:80} INFO - Job 4: Subtask extract
+[2022-08-17 19:24:25,243] {task_command.py:371} INFO - Running <TaskInstance: unitronics_ETL_v01.extract scheduled__2022-08-14T00:00:00+00:00 [running]> on host 934582caf3b6
+[2022-08-17 19:24:25,332] {taskinstance.py:1591} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Cavefish
+AIRFLOW_CTX_DAG_ID=unitronics_ETL_v01
+AIRFLOW_CTX_TASK_ID=extract
+AIRFLOW_CTX_EXECUTION_DATE=2022-08-14T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-08-14T00:00:00+00:00
+[2022-08-17 19:24:25,341] {taskinstance.py:1909} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 171, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 189, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/unitronics_ETL.py", line 95, in extractData
+    device_df = concatDataFrame(super_df_device)
+  File "/opt/airflow/dags/unitronics_ETL.py", line 54, in concatDataFrame
+    df = pd.concat(df, axis=0)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/util/_decorators.py", line 311, in wrapper
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/core/reshape/concat.py", line 304, in concat
+    sort=sort,
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/core/reshape/concat.py", line 351, in __init__
+    raise ValueError("No objects to concatenate")
+ValueError: No objects to concatenate
+[2022-08-17 19:24:25,352] {taskinstance.py:1420} INFO - Marking task as UP_FOR_RETRY. dag_id=unitronics_ETL_v01, task_id=extract, execution_date=20220814T000000, start_date=20220817T192425, end_date=20220817T192425
+[2022-08-17 19:24:25,365] {standard_task_runner.py:97} ERROR - Failed to execute job 4 for task extract (No objects to concatenate; 225)
+[2022-08-17 19:24:25,385] {local_task_job.py:156} INFO - Task exited with return code 1
+[2022-08-17 19:24:25,432] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2022-08-17 19:29:40,839] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: unitronics_ETL_v01.extract scheduled__2022-08-14T00:00:00+00:00 [queued]>
+[2022-08-17 19:29:40,850] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: unitronics_ETL_v01.extract scheduled__2022-08-14T00:00:00+00:00 [queued]>
+[2022-08-17 19:29:40,851] {taskinstance.py:1376} INFO - 
+--------------------------------------------------------------------------------
+[2022-08-17 19:29:40,851] {taskinstance.py:1377} INFO - Starting attempt 1 of 6
+[2022-08-17 19:29:40,851] {taskinstance.py:1378} INFO - 
+--------------------------------------------------------------------------------
+[2022-08-17 19:29:40,868] {taskinstance.py:1397} INFO - Executing <Task(PythonOperator): extract> on 2022-08-14 00:00:00+00:00
+[2022-08-17 19:29:40,873] {standard_task_runner.py:52} INFO - Started process 224 to run task
+[2022-08-17 19:29:40,877] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'unitronics_ETL_v01', 'extract', 'scheduled__2022-08-14T00:00:00+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/unitronics_ETL.py', '--cfg-path', '/tmp/tmpwxqop603', '--error-file', '/tmp/tmpyksquu_s']
+[2022-08-17 19:29:40,883] {standard_task_runner.py:80} INFO - Job 4: Subtask extract
+[2022-08-17 19:29:40,976] {task_command.py:371} INFO - Running <TaskInstance: unitronics_ETL_v01.extract scheduled__2022-08-14T00:00:00+00:00 [running]> on host 2ea01d049be8
+[2022-08-17 19:29:41,087] {taskinstance.py:1591} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Cavefish
+AIRFLOW_CTX_DAG_ID=unitronics_ETL_v01
+AIRFLOW_CTX_TASK_ID=extract
+AIRFLOW_CTX_EXECUTION_DATE=2022-08-14T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-08-14T00:00:00+00:00
+[2022-08-17 19:29:41,097] {taskinstance.py:1909} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 171, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 189, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/unitronics_ETL.py", line 94, in extractData
+    device_df = concatDataFrame(super_df_device)
+  File "/opt/airflow/dags/unitronics_ETL.py", line 53, in concatDataFrame
+    df = pd.concat(df, axis=0)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/util/_decorators.py", line 311, in wrapper
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/core/reshape/concat.py", line 304, in concat
+    sort=sort,
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/core/reshape/concat.py", line 351, in __init__
+    raise ValueError("No objects to concatenate")
+ValueError: No objects to concatenate
+[2022-08-17 19:29:41,116] {taskinstance.py:1420} INFO - Marking task as UP_FOR_RETRY. dag_id=unitronics_ETL_v01, task_id=extract, execution_date=20220814T000000, start_date=20220817T192940, end_date=20220817T192941
+[2022-08-17 19:29:41,135] {standard_task_runner.py:97} ERROR - Failed to execute job 4 for task extract (No objects to concatenate; 224)
+[2022-08-17 19:29:41,169] {local_task_job.py:156} INFO - Task exited with return code 1
+[2022-08-17 19:29:41,256] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2022-08-17 19:40:57,935] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: unitronics_ETL_v01.extract scheduled__2022-08-14T00:00:00+00:00 [queued]>
+[2022-08-17 19:40:57,945] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: unitronics_ETL_v01.extract scheduled__2022-08-14T00:00:00+00:00 [queued]>
+[2022-08-17 19:40:57,946] {taskinstance.py:1376} INFO - 
+--------------------------------------------------------------------------------
+[2022-08-17 19:40:57,946] {taskinstance.py:1377} INFO - Starting attempt 1 of 6
+[2022-08-17 19:40:57,946] {taskinstance.py:1378} INFO - 
+--------------------------------------------------------------------------------
+[2022-08-17 19:40:57,965] {taskinstance.py:1397} INFO - Executing <Task(PythonOperator): extract> on 2022-08-14 00:00:00+00:00
+[2022-08-17 19:40:57,970] {standard_task_runner.py:52} INFO - Started process 248 to run task
+[2022-08-17 19:40:57,974] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'unitronics_ETL_v01', 'extract', 'scheduled__2022-08-14T00:00:00+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/unitronics_ETL.py', '--cfg-path', '/tmp/tmp37tfxast', '--error-file', '/tmp/tmptqjx0_b_']
+[2022-08-17 19:40:57,979] {standard_task_runner.py:80} INFO - Job 3: Subtask extract
+[2022-08-17 19:40:58,113] {task_command.py:371} INFO - Running <TaskInstance: unitronics_ETL_v01.extract scheduled__2022-08-14T00:00:00+00:00 [running]> on host 8c93e37464e5
+[2022-08-17 19:40:58,268] {taskinstance.py:1591} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Cavefish
+AIRFLOW_CTX_DAG_ID=unitronics_ETL_v01
+AIRFLOW_CTX_TASK_ID=extract
+AIRFLOW_CTX_EXECUTION_DATE=2022-08-14T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-08-14T00:00:00+00:00
+[2022-08-17 19:40:58,278] {taskinstance.py:1909} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 171, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 189, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/unitronics_ETL.py", line 94, in extractData
+    device_df = concatDataFrame(super_df_device)
+  File "/opt/airflow/dags/unitronics_ETL.py", line 53, in concatDataFrame
+    df = pd.concat(df, axis=0)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/util/_decorators.py", line 311, in wrapper
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/core/reshape/concat.py", line 304, in concat
+    sort=sort,
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/core/reshape/concat.py", line 351, in __init__
+    raise ValueError("No objects to concatenate")
+ValueError: No objects to concatenate
+[2022-08-17 19:40:58,305] {taskinstance.py:1420} INFO - Marking task as UP_FOR_RETRY. dag_id=unitronics_ETL_v01, task_id=extract, execution_date=20220814T000000, start_date=20220817T194057, end_date=20220817T194058
+[2022-08-17 19:40:58,335] {standard_task_runner.py:97} ERROR - Failed to execute job 3 for task extract (No objects to concatenate; 248)
+[2022-08-17 19:40:58,347] {local_task_job.py:156} INFO - Task exited with return code 1
+[2022-08-17 19:40:58,423] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2022-08-17 21:17:51,209] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: unitronics_ETL_v01.extract scheduled__2022-08-14T00:00:00+00:00 [queued]>
+[2022-08-17 21:17:51,226] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: unitronics_ETL_v01.extract scheduled__2022-08-14T00:00:00+00:00 [queued]>
+[2022-08-17 21:17:51,227] {taskinstance.py:1376} INFO - 
+--------------------------------------------------------------------------------
+[2022-08-17 21:17:51,227] {taskinstance.py:1377} INFO - Starting attempt 1 of 6
+[2022-08-17 21:17:51,227] {taskinstance.py:1378} INFO - 
+--------------------------------------------------------------------------------
+[2022-08-17 21:17:51,252] {taskinstance.py:1397} INFO - Executing <Task(PythonOperator): extract> on 2022-08-14 00:00:00+00:00
+[2022-08-17 21:17:51,257] {standard_task_runner.py:52} INFO - Started process 224 to run task
+[2022-08-17 21:17:51,265] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'unitronics_ETL_v01', 'extract', 'scheduled__2022-08-14T00:00:00+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/unitronics_ETL.py', '--cfg-path', '/tmp/tmp_isxeof_', '--error-file', '/tmp/tmpd5vcz3a_']
+[2022-08-17 21:17:51,266] {standard_task_runner.py:80} INFO - Job 3: Subtask extract
+[2022-08-17 21:17:51,448] {task_command.py:371} INFO - Running <TaskInstance: unitronics_ETL_v01.extract scheduled__2022-08-14T00:00:00+00:00 [running]> on host 1b0f89009e2c
+[2022-08-17 21:17:51,610] {taskinstance.py:1591} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Cavefish
+AIRFLOW_CTX_DAG_ID=unitronics_ETL_v01
+AIRFLOW_CTX_TASK_ID=extract
+AIRFLOW_CTX_EXECUTION_DATE=2022-08-14T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-08-14T00:00:00+00:00
+[2022-08-17 21:17:51,627] {taskinstance.py:1909} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 171, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 189, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/unitronics_ETL.py", line 76, in extractData
+    files = os.listdir(dir_name)
+FileNotFoundError: [Errno 2] No such file or directory: '/Unitronics Data Logs/'
+[2022-08-17 21:17:51,647] {taskinstance.py:1420} INFO - Marking task as UP_FOR_RETRY. dag_id=unitronics_ETL_v01, task_id=extract, execution_date=20220814T000000, start_date=20220817T211751, end_date=20220817T211751
+[2022-08-17 21:17:51,669] {standard_task_runner.py:97} ERROR - Failed to execute job 3 for task extract ([Errno 2] No such file or directory: '/Unitronics Data Logs/'; 224)
+[2022-08-17 21:17:51,679] {local_task_job.py:156} INFO - Task exited with return code 1
+[2022-08-17 21:17:51,747] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check
