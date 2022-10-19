@@ -27,22 +27,24 @@ def extractData(dir_name):
     super_df_alarm = []
 
     for root, dirs, files in os.walk(dir_name):
-        for filename in files:
-            rack_number = re.search(r'CF(.*?)\.', filename)[1]
-            try:
-                if 'Device' in filename:
-                    df_temp_device = createDataFrame(root, filename, rack_number)
-                    super_df_device.append(df_temp_device)
-                elif 'Sensor' in filename:
-                    df_temp_sensor = createDataFrame(
-                        root, filename, rack_number)
-                    super_df_sensor.append(df_temp_sensor)
-                elif 'Alarms' in filename:
-                    df_temp_alarm = createDataFrame(root, filename, rack_number)
-                    super_df_alarm.append(df_temp_alarm)
-            except (TypeError) as error:
-                print(error)
-                continue
+        for index,dir_name in enumerate(dirs):
+            print(dir_name)
+            rack_number = re.search(r'(?<=CF).*', dir_name)[0]
+            for filename in os.listdir(os.path.join(root,dir_name)):
+                try:
+                    if 'Device' in filename:
+                        df_temp_device = createDataFrame(root,dir_name, filename, rack_number)
+                        super_df_device.append(df_temp_device)
+                    elif 'Sensor' in filename:
+                        df_temp_sensor = createDataFrame(
+                            root, dir_name, filename, rack_number)
+                        super_df_sensor.append(df_temp_sensor)
+                    elif 'Alarms' in filename:
+                        df_temp_alarm = createDataFrame(root, dir_name, filename, rack_number)
+                        super_df_alarm.append(df_temp_alarm)
+                except (TypeError) as error:
+                    print(error)
+                    continue
 
     device_df = concatDataFrame(super_df_device)
     device_df = device_df[['rack_num', 'Date_Time', 'Device', 'State']]
